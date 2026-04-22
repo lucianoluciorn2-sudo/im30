@@ -82,7 +82,7 @@ echo.
 echo ============================================
 echo   Abrindo JetinoPay no IM30...
 echo ============================================
-"%ADB%" -s %DEVICE% shell am start -n br.com.jetinopay.debug/.MainActivity
+"%ADB%" -s %DEVICE% shell am start -n br.com.jetinopay.debug/.ui.TesteMdbActivity
 
 echo.
 echo Pronto! Verifique a tela do IM30.
