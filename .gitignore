@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# SDKs proprietários — NÃO versionar
+app/libs/*.aar
+app/libs/*.jar
+
+# APKs gerados
+app/build/
