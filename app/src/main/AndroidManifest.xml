@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Rede -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Hardware PAX IM30 (leitores de cartão e impressora) -->
+    <uses-permission android:name="com.pax.permission.PRINTER" />
+    <uses-permission android:name="com.pax.permission.ICC" />
+    <uses-permission android:name="com.pax.permission.PICC" />
+    <uses-permission android:name="com.pax.permission.MSR" />
+
+    <!-- Porta serial MDB (/dev/ttyS4) -->
+    <uses-feature android:name="android.hardware.usb.host" android:required="false" />
+
+    <application
+        android:name=".JetinoPayApp"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.JetinoPay"
+        android:usesCleartextTraffic="true">
+
+        <!--
+            VERSÃO DE TESTE — launcher é TesteMdbActivity (sem TEF).
+            Para a versão PRODUÇÃO com TEF real:
+              1. Troque o intent-filter de volta para .MainActivity
+              2. Remova o intent-filter de .ui.TesteMdbActivity
+        -->
+        <activity
+            android:name=".ui.TesteMdbActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Tela principal produção (TEF habilitado) — não é launcher nesta versão -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" />
+
+        <!-- Tela de pagamento — chama m-SiTef e reporta resultado -->
+        <activity
+            android:name=".ui.PaymentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" />
+
+        <!-- Tela de comprovante -->
+        <activity
+            android:name=".ui.ReceiptActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Tela de configurações SiTef / Fiserv -->
+        <activity
+            android:name=".ui.ConfiguracoesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="Configurações SiTef" />
+
+    </application>
+</manifest>
