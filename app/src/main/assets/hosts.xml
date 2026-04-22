@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Domínios liberados pelo proxy privado do SmartPOS (chip SIM corporativo).
+    Adicione aqui TODOS os hosts que o app precisa acessar.
+    Sem este arquivo, conexões externas serão bloqueadas pelo proxy da Software Express.
+-->
+<hosts>
+    <!-- JetinoPay API — altere para o IP/domínio real do seu servidor -->
+    <host>192.168.1.50</host>
+
+    <!-- Servidor SiTef local -->
+    <host>192.168.1.10</host>
+
+    <!-- Domínio de produção da JetinoPay (quando deployada) -->
+    <!-- <host>api.jetinopay.com.br</host> -->
+</hosts>
